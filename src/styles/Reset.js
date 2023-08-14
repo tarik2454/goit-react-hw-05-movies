@@ -31,6 +31,31 @@ dd {
   margin: 0;
 }
 
+/* Another version of the previous block */
+/* 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+} 
+*/
+
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -46,8 +71,7 @@ section {
   display: block;
 }
 
-ul[class],
-ol[class] {
+ul {
   padding-left: 0;
 }
 
@@ -62,16 +86,19 @@ html:focus-within {
 
 body {
   min-height: 100vh;
-  // text-rendering: optimizeSpeed;
-  line-height: 1;
+  /* 
+  text-rendering: optimizeSpeed;
+  */
+  /* line-height: 1;  */
+
 }
 
-ul[class],
-ol[class] {
+ul
+ {
   list-style: none;
 }
 
-a[class] {
+a {
   text-decoration: none;
 }
 
@@ -125,5 +152,21 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 `;

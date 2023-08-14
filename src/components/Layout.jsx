@@ -1,13 +1,23 @@
-import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import { StyledContainer, StyledMain } from 'styles/GlobalStyle.js';
+import { StyledHeader } from './Header/Header';
+import { Navigation } from './Navigation/Navigation.jsx';
 
-export const Layout = () => {
+export const Layout = children => {
   return (
     <>
-      <NavLink to="/">Ссылка</NavLink>
-      <NavLink to="/2">Ссылка2</NavLink>
+      <StyledHeader>
+        <StyledContainer>
+          <Navigation>{children}</Navigation>
+        </StyledContainer>
+      </StyledHeader>
 
-      <Outlet />
+      <StyledMain>
+        <Suspense fallback={<h1>Loading....</h1>}>
+          <Outlet />
+        </Suspense>
+      </StyledMain>
     </>
   );
 };

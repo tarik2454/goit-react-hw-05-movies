@@ -1,10 +1,10 @@
-import React, { Children } from 'react';
-import { styled } from 'styled-components';
+import React from 'react';
+import { StyledContainer, StyledHeader } from 'styles/GlobalStyle';
 
-export const Header = () => {
-  return <HeaderStyled>{Children}</HeaderStyled>;
+export const Header = ({ children }) => {
+  return (
+    <StyledHeader>
+      <StyledContainer>{children}</StyledContainer>
+    </StyledHeader>
+  );
 };
-
-const HeaderStyled = styled.header`
-  width: 100%;
-`;
