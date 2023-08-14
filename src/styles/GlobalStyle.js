@@ -18,16 +18,17 @@ export const GlobalStyle = createGlobalStyle`
 
 export const StyledLink = styled(Link)`
   color: ${props => props.theme.colors.$primiryTextColor};
+  text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
     color: ${props => props.theme.colors.$accentColor};
   }
 `;
 
 export const StyledButton = styled.button`
-  padding: 10px;
   max-height: 37px;
+  padding: ${props => props.$padding || '10px 15px'};
+  margin: ${props => props.$margin || '0'};
 
   border-radius: ${props => props.theme.$borderRadius};
   color: black;
@@ -40,10 +41,18 @@ export const StyledButton = styled.button`
   }
 `;
 
+export const StyledPageTitle = styled.h1`
+  font-size: 25px;
+  margin-bottom: 15px;
+  color: ${props => props.theme.colors.$secondaryTextColor};
+`;
+
 export const StyledMain = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  margin-bottom: 30px;
 `;
 
 export const StyledSection = styled.section`
@@ -59,13 +68,11 @@ export const StyledContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 0 32px;
   }
 
   @media screen and (min-width: 1440px) {
     max-width: 1440px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 0 24px;
   }
 `;

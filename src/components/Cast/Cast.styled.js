@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
 
-export const StyledList = styled.ul`
+export const StyledCastList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
 `;
 
-export const StyledListItem = styled.li`
+export const StyledCastItem = styled.li`
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -18,6 +18,12 @@ export const StyledListItem = styled.li`
   }
 `;
 
-export const StyledImage = styled.img`
+export const StyledCastName = styled.h2`
+  font-size: 20px;
+`;
+
+export const StyledCastImage = styled.img`
+  margin-bottom: 6px;
   border-radius: ${props => props.theme.$borderRadius};
+  overflow: hidden;
 `;

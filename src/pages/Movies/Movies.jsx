@@ -8,7 +8,13 @@ import {
   StyledLink,
   StyledSection,
 } from 'styles/GlobalStyle';
-import { StyledForm, StyledInput, StyledList } from './Movies.styled';
+import {
+  StyledForm,
+  StyledInput,
+  StyledList,
+  StyledListItem,
+} from './Movies.styled';
+import { StyledImage } from 'pages/Movies/Movies.styled';
 // import { getSearchMovies } from 'services/api-services';
 
 const Movies = () => {
@@ -53,11 +59,15 @@ const Movies = () => {
         </StyledForm>
         <StyledList>
           {movies.map(movie => (
-            <li key={movie.id}>
+            <StyledListItem key={movie.id}>
               <StyledLink to={`/movies/${movie.id}`} state={{ from: location }}>
-                {movie.title}
+                <StyledImage
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt=""
+                />
+                <h2>{movie.title}</h2>
               </StyledLink>
-            </li>
+            </StyledListItem>
           ))}
         </StyledList>
       </StyledContainer>

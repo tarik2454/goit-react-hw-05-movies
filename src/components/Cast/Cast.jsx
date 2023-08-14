@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastMovie } from 'services/api-services';
+import {
+  StyledCastImage,
+  StyledCastItem,
+  StyledCastList,
+  StyledCastName,
+} from './Cast.styled';
 
 export const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -20,20 +26,18 @@ export const Cast = () => {
   }, [movieId]);
 
   return (
-    <>
-      <ul>
-        {cast.map(item => (
-          <li key={item.id}>
-            <h2>{item.name}</h2>
-            {item.profile_path && (
-              <img
-                src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
-                alt=""
-              />
-            )}
-          </li>
-        ))}
-      </ul>
-    </>
+    <StyledCastList>
+      {cast.map(item => (
+        <StyledCastItem key={item.id}>
+          {item.profile_path && (
+            <StyledCastImage
+              src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
+              alt=""
+            />
+          )}
+          <StyledCastName>{item.name}</StyledCastName>
+        </StyledCastItem>
+      ))}
+    </StyledCastList>
   );
 };
