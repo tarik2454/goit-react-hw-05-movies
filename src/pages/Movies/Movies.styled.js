@@ -38,5 +38,6 @@ export const StyledListItem = styled.li`
 `;
 
 export const StyledImage = styled.img`
+  margin-bottom: 3px;
   border-radius: ${props => props.theme.$borderRadius};
 `;

@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const StyledLink = styled(Link)`
+  font-size: 12px;
   color: ${props => props.theme.colors.$primiryTextColor};
   text-decoration: none;
 
