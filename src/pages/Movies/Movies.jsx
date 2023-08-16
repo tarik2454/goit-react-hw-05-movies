@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
@@ -15,7 +14,7 @@ import {
   StyledListItem,
 } from './Movies.styled';
 import { StyledImage } from 'pages/Movies/Movies.styled';
-// import { getSearchMovies } from 'services/api-services';
+import { getMovieByName } from 'services/api-services';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -25,19 +24,17 @@ const Movies = () => {
   const location = useLocation();
 
   useEffect(() => {
-    async function fetchSearchMovies() {
+    if (!query) return;
+    async function fetchMovieByName() {
       try {
-        const { data } = await axios.get(
-          `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1&api_key=1013c52116bedf0103542a409c4e960e`
-        );
-
-        setMovies(data.results);
+        const data = await getMovieByName(query);
+        setMovies(data);
       } catch (error) {
-        console.warn(error);
+        console.warn(error.message);
       }
     }
 
-    fetchSearchMovies();
+    fetchMovieByName();
   }, [query]);
 
   const handleSearch = event => {

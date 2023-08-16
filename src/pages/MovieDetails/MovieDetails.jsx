@@ -30,7 +30,7 @@ const MovieDetails = () => {
         const data = await getMovieDetails(movieId);
         setMovie(data);
       } catch (error) {
-        console.warn(error);
+        console.warn(error.message);
       }
     }
 

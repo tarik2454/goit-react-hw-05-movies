@@ -31,3 +31,10 @@ export const getReviewsMovie = async movieId => {
 
   return data.results;
 };
+
+export const getMovieByName = async name => {
+  const { data } = await axios.get(
+    `/search/movie?${searchParams}&query=${name}`
+  );
+  return data.results;
+};
